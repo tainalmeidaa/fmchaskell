@@ -31,10 +31,11 @@ n + S m = S (n + m)
  -- syntactic associativity: L
  -- syntactic precedence: 6
 infixl 6 +
-
+	
 -- Output: O means False, S O means True
 isZero :: Nat -> Nat
-isZero = undefined
+isZero O = S O
+isZero (S n) = O
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
