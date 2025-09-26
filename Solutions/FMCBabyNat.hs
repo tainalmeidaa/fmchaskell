@@ -61,7 +61,8 @@ monus = undefined
 
 -- multiplication
 (*) :: Nat -> Nat -> Nat
-(*) = undefined
+n * O     = O
+n * (S m) = (n * m) + n
 
 infixl 7 *
 
