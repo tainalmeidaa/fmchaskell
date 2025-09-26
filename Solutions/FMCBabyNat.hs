@@ -68,8 +68,10 @@ infixl 7 *
 
 -- exponentiation
 (^) :: Nat -> Nat -> Nat
-(^) = undefined
+n ^ O     = S O
+n ^ (S m) = n * (n ^ m)
 
+infixr 8 ^
 -- decide: infix? ? ^
 
 -- quotient
