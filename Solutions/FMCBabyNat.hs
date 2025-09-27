@@ -81,11 +81,16 @@ infixr 8 ^
 
 -- quotient
 (/) :: Nat -> Nat -> Nat
-(/) = undefined
+O / (S m) = O
+(S n) / O = undefined
+n / m | n == m = S O
+n / m | monus n m == O = O
+n / m = S ((monus n m) / m)
 
 -- remainder
 (%) :: Nat -> Nat -> Nat
-(%) = undefined
+_ % O = undefined
+x % y = x -* (y * (x / y))
 
 -- divides
 -- just for a change, we start by defining the "symbolic" operator
@@ -103,7 +108,8 @@ absDiff = undefined
 (|-|) = absDiff
 
 factorial :: Nat -> Nat
-factorial = undefined
+factorial O     = S O
+factorial (S n) = (S n) * (factorial n)
 
 -- signum of a number (-1, 0, or 1)
 sg :: Nat -> Nat
@@ -112,5 +118,8 @@ sg (S n) = S O
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
-lo = undefined
+lo b O = undefined  
+lo O a = undefined 
+lo b a | (a / b) == O = O
+lo b a = S (lo b (a / b))
 
