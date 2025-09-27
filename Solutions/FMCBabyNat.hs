@@ -97,7 +97,11 @@ x % y = x -* (y * (x / y))
 -- and then define `devides` as a synonym to it
 -- again, outputs: O means False, S O means True
 (|||) :: Nat -> Nat -> Nat
-(|||) = undefined
+O ||| O = S O          
+O ||| (S n) = O           
+
+n ||| m | (m % n) == O = S O
+n ||| m = O
 
 -- x `absDiff` y = |x - y|
 -- (Careful here: this - is the actual minus operator we know from the integers!)
