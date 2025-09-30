@@ -103,8 +103,9 @@ odd (S n) = even n
 ----------------------------------------------------------------
 
 -- addition
-(<+>) :: Nat -> Nat -> Nat
-(<+>) = undefined
+(<+>) :: Nat -> Nat -> Nat 
+(<+>) O n = n
+(<+>) (S m) n = S (m <+> n)
 
 -- This is called the dotminus or monus operator
 -- (also: proper subtraction, arithmetic subtraction, ...).
