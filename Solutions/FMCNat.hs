@@ -90,10 +90,12 @@ pred :: Nat -> Nat
 pred = undefined
 
 even :: Nat -> Bool
-even = undefined
+even O     = True
+even (S n) = odd n
 
 odd :: Nat -> Bool
-odd = undefined
+odd O     = False
+odd (S n) = even n
 
 
 ----------------------------------------------------------------
