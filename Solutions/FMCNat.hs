@@ -113,10 +113,12 @@ odd (S n) = even n
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 monus :: Nat -> Nat -> Nat
-monus = undefined
+monus O _ = O
+monus n O = n
+monus (S n) (S m) = monus n m
 
 (-*) :: Nat -> Nat -> Nat
-(-*) = undefined
+(-*) = monus
 
 -- multiplication
 times :: Nat -> Nat -> Nat
