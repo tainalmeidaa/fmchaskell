@@ -53,7 +53,9 @@ instance Ord Nat where
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
 
-    min = undefined
+    min O n = O
+    min m O = O
+    min (S m) (S n) = S (min m n)
 
     max = undefined
 
@@ -191,4 +193,5 @@ instance Num Nat where
       | x < 0     = undefined
       | x == 0    = undefined
       | otherwise = undefined
+
 
