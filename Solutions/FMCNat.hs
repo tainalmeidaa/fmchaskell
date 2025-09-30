@@ -120,7 +120,8 @@ monus = undefined
 
 -- multiplication
 times :: Nat -> Nat -> Nat
-times = undefined
+times O _ = O
+times (S m) n = n <+> (times m n)
 
 (<*>) :: Nat -> Nat -> Nat
 (<*>) = times
