@@ -87,7 +87,8 @@ isZero _ = False
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
-pred = undefined
+pred O     = O
+pred (S n) = n
 
 even :: Nat -> Bool
 even O     = True
