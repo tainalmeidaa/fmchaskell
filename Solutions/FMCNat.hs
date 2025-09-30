@@ -39,7 +39,9 @@ instance Show Nat where
 	
 instance Eq Nat where
 
-    (==) = undefined
+    (==) O O = True
+    (==) (S n) (S m) = n == m
+    (==) _ _ = False
 
 instance Ord Nat where
 
