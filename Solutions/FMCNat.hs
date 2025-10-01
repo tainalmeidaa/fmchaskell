@@ -149,7 +149,7 @@ exp = pow
 
 -- euclidean division
 eucdiv :: (Nat, Nat) -> (Nat, Nat)
-eucdiv = undefined
+eucdiv (n, m) = (n </> m, n <%> m)
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
