@@ -130,13 +130,14 @@ times (S m) n = n <+> (times m n)
 
 -- power / exponentiation
 pow :: Nat -> Nat -> Nat
-pow = undefined
+pow _ O = one
+pow b (S e) = b <*> (pow b e)
 
 exp :: Nat -> Nat -> Nat
-exp = undefined
+exp = pow
 
 (<^>) :: Nat -> Nat -> Nat
-(<^>) = undefined
+(<^>) = pow 
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
