@@ -80,11 +80,13 @@ not False = True
 
 -- if-then-else expression
 ifThenElse :: Bool -> a -> a -> a
-ifThenElse = undefined
+ifThenElse True  t e = t
+ifThenElse False t e = e
 
 -- logical "implies"
 (==>) :: Bool -> Bool -> Bool
-(==>) = undefined
+True  ==> False = False
+_     ==> _     = True
 
 infixr 1 ==>
 
