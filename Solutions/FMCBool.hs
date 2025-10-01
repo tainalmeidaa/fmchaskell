@@ -26,13 +26,18 @@ data Bool = False | True
 
 instance Show Bool where
 
-    show = undefined
+    show True = "True"
+    show False = "False"
 
 instance Enum Bool where
 
-    toEnum  = undefined
+    toEnum x
+      | x == 0 = False
+      | x == 1 = True
+      | otherwise = error "toEnum: input must be 0 or 1"
 
-    fromEnum  = undefined
+    fromEnum True = 1
+    fromEnum False = 0
 
 -- conjunction (AND)
 (&&) :: Bool -> Bool -> Bool
