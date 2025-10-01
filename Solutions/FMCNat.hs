@@ -208,5 +208,3 @@ instance Num Nat where
       | x < 0     = undefined
       | x == 0    = undefined
       | otherwise = undefined
-
-
