@@ -153,7 +153,7 @@ eucdiv = undefined
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
-(<|>) = undefined
+n <|> m = isZero (n <%> m)
 
 divides = (<|>)
 
