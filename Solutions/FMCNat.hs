@@ -162,7 +162,7 @@ divides = (<|>)
 -- x `dist` y = |x - y|
 -- (Careful here: this - is the real minus operator!)
 dist :: Nat -> Nat -> Nat
-dist = undefined
+dist x y = (x -* y) <+> (y -* x)
 
 (|-|) = dist
 
