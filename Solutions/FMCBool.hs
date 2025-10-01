@@ -92,13 +92,13 @@ infixr 1 ==>
 
 -- logical "implied by"
 (<==) :: Bool -> Bool -> Bool
-(<==) = undefined
+a <== b = b ==> a
 
 infixl 1 <==
 
 -- logical equivalence
 (<=>) :: Bool -> Bool -> Bool
-(<=>) = undefined
+a <=> b = not (a <=/=> b)
 
 infixr 1 <=>
 
