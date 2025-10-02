@@ -173,7 +173,7 @@ infixl 5 +++
 
 -- checks if the letters of a phrase form a palindrome (see below for examples)
 palindrome :: String -> Bool
-palindrome = undefined
+palindrome s = s == reverse s
 
 {-
 
