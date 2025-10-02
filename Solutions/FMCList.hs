@@ -66,7 +66,8 @@ tail (_:xs) = xs
 tail [] = error "tail: empty list"
 
 null :: [a] -> Bool
-null = undefined
+null (_:_) = False
+null [] = True
 
 length :: Integral i => [a] -> i
 length = undefined
