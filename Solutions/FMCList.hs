@@ -111,7 +111,13 @@ xs +++ (y:ys) = (xs +++ [y]) +++ ys
 -- (hmm?!)
 infixl 5 +++
 
--- minimum :: Ord a => [a] -> a
+minimum :: Ord a => [a] -> a
+minimum [] = error "minimum: empty list"
+minimum [x] = x
+minimum (x:xs)
+  |x < minimum xs = x
+  |otherwise = minimum xs
+
 -- maximum :: Ord a => [a] -> a
 
 -- take
