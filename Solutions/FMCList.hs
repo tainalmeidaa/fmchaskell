@@ -118,7 +118,12 @@ minimum (x:xs)
   |x < minimum xs = x
   |otherwise = minimum xs
 
--- maximum :: Ord a => [a] -> a
+maximum :: Ord a => [a] -> a
+maximum [] = error "maximum: empty list"
+maximum [x] = x
+maximum (x:xs)
+ |x > maximum xs = x
+ |otherwise = maximum xs
 
 -- take
 -- drop
