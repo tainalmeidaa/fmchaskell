@@ -62,7 +62,8 @@ head (x:_) = x
 head [] = error "head: empty list"
 
 tail :: [a] -> [a]
-tail = undefined
+tail (_:xs) = xs
+tail [] = error "tail: empty list"
 
 null :: [a] -> Bool
 null = undefined
