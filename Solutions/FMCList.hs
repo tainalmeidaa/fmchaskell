@@ -58,7 +58,8 @@ write [u,v]     for our u `Cons` (v `Cons` Nil)
 -}
 
 head :: [a] -> a
-head = undefined
+head (x:_) = x
+head [] = error "head: empty list"
 
 tail :: [a] -> [a]
 tail = undefined
