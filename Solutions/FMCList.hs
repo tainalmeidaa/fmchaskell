@@ -155,7 +155,10 @@ or :: [Bool] -> Bool
 or [] = False
 or (x:xs) = x || or xs
 
--- concat
+concat :: [[a]] -> [a]
+concat [] = []
+concat (xs:xss) = xs ++ concat xss
+
 
 -- elem using the funciton 'any' above
 
