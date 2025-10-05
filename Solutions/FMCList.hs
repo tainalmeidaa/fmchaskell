@@ -180,15 +180,31 @@ concat :: [[a]] -> [a]
 concat [] = []
 concat (xs:xss) = xs ++ concat xss
 
-
 -- elem using the funciton 'any' above
+elem :: Eq a => a -> [a] -> Bool
+elem y xs = any (\x -> x == y) xs
 
 -- elem': same as elem but elementary definition
 -- (without using other functions except (==))
+elem' :: Eq a => a -> [a] -> Bool
+elem' _ [] = False
+elem' y (x:xs)
+  | y == x    = True
+  | otherwise = elem' y xs
 
--- (!!)
 
--- filter
+(!!) :: [a] -> Int -> a
+[]      !! _ = error "!!: indice fora dos limites"
+(x:_)   !! 0 = x
+(_:xs)  !! n
+  | n < 0     = error "!!: indice negativo"
+  | otherwise = xs !! (n - 1)
+
+filter :: (a -> Bool) -> [a] -> [a]
+filter _ [] = []
+filter p (x:xs)
+  | p x       = x : filter p xs
+  | otherwise = filter p xs
 
 map :: (a -> b) -> [a] -> [b]
 map _ [] = []
