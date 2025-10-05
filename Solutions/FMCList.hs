@@ -253,7 +253,12 @@ nub (x:xs)
 -- what is the problem with the following?:
 -- splitAt n xs  =  (take n xs, drop n xs)
 
--- break
+break :: (a -> Bool) -> [a] -> ([a], [a])
+break _ [] = ([], [])
+break p (x:xs)
+  | p x       = ([], x:xs) 
+  | otherwise = (x:ys, zs) 
+  where (ys, zs) = break p xs
 
 -- lines
 -- words
