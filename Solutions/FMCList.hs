@@ -267,7 +267,10 @@ unlines :: [String] -> String
 unlines [] = []
 unlines (x:xs) = x ++ "\n" ++ unlines xs
 
--- unwords
+unwords :: [String] -> String
+unwords [] = []
+unwords [x] = x
+unwords (x:xs) = x ++ " " ++ unwords xs
 
 -- transpose
 
