@@ -219,8 +219,16 @@ repeat x = x : repeat x
 
 -- replicate
 
--- isPrefixOf
--- isInfixOf
+isPrefixOf :: Eq a => [a] -> [a] -> Bool
+isPrefixOf [] _ = True    
+isPrefixOf _ [] = False 
+isPrefixOf (x:xs) (y:ys)
+  | x == y    = isPrefixOf xs ys
+  | otherwise = False 
+
+isSuffixOf :: Eq a => [a] -> [a] -> Bool
+isSuffixOf xs ys = isPrefixOf (reverse xs) (reverse ys)
+
 -- isSuffixOf
 
 -- zip
