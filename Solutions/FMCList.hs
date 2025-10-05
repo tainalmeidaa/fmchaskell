@@ -262,7 +262,11 @@ break p (x:xs)
 
 -- lines
 -- words
--- unlines
+
+unlines :: [String] -> String
+unlines [] = []
+unlines (x:xs) = x ++ "\n" ++ unlines xs
+
 -- unwords
 
 -- transpose
