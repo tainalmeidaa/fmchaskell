@@ -210,8 +210,13 @@ map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (x:xs) = f x : map f xs
 
--- cycle
--- repeat
+cycle :: [a] -> [a]
+cycle [] = error "cycle: lista vazia"
+cycle xs = xs ++ cycle xs
+
+repeat :: a -> [a]
+repeat x = x : repeat x
+
 -- replicate
 
 -- isPrefixOf
