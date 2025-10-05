@@ -231,11 +231,23 @@ isSuffixOf xs ys = isPrefixOf (reverse xs) (reverse ys)
 
 -- isSuffixOf
 
--- zip
--- zipWith
+zip :: [a] -> [b] -> [(a, b)]
+zip [] _          = []
+zip _ []          = []
+zip (x:xs) (y:ys) = (x, y) : zip xs ys
+
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith _ [] _          = []
+zipWith _ _ []          = []
+zipWith f (x:xs) (y:ys) = f x y : zipWith f xs ys
 
 -- intercalate
--- nub
+
+nub :: Eq a => [a] -> [a]
+nub [] = []
+nub (x:xs)
+  | x `elem` nub xs = nub xs     
+  | otherwise       = x : nub xs
 
 -- splitAt
 -- what is the problem with the following?:
