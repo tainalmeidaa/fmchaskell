@@ -281,7 +281,12 @@ unwords [] = []
 unwords [x] = x
 unwords (x:xs) = x ++ " " ++ unwords xs
 
--- transpose
+transpose :: [[a]] -> [[a]]
+transpose [] = []
+transpose ([]:xss) = transpose xss
+transpose ((x:xs):xss) =
+  (x : map head xss) : transpose (xs : map tail xss)
+
 
 -- checks if the letters of a phrase form a palindrome (see below for examples)
 palindrome :: String -> Bool
