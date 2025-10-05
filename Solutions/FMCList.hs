@@ -147,8 +147,11 @@ drop n (_:xs) = drop (n-1) xs
 -- any
 -- all
 
--- and
--- or
+and :: [Bool] -> Bool
+and [] = True
+and (x:xs) = x && and xs
+
+--or
 
 -- concat
 
