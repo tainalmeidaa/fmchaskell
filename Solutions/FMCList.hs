@@ -142,7 +142,11 @@ tails :: [a] -> [[a]]
 tails [] = [[]]
 tails xs = xs : tails (tail xs)
 
--- init
+init :: [a] -> [a]
+init [] = error "unit: empty list"
+init [_] = []
+init (x:xs) = x : init xs
+
 -- inits
 
 -- subsequences
