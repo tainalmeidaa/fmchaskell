@@ -154,6 +154,12 @@ inits xs = inits (init xs) ++ [xs]
 -- subsequences
 
 -- any
+any :: (a -> Bool) -> [a] -> Bool
+any _ [] = False
+any p (x:xs)
+  | p x       = True    
+  | otherwise = any p xs
+
 -- all
 
 and :: [Bool] -> Bool
