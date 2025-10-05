@@ -138,7 +138,10 @@ drop n (_:xs) = drop (n-1) xs
 -- takeWhile
 -- dropWhile
 
--- tails
+tails :: [a] -> [[a]]
+tails [] = [[]]
+tails xs = xs : tails (tail xs)
+
 -- init
 -- inits
 
