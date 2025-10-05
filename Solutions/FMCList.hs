@@ -147,7 +147,9 @@ init [] = error "unit: empty list"
 init [_] = []
 init (x:xs) = x : init xs
 
--- inits
+inits :: [a] -> [[a]]
+inits [] = [[]]
+inits xs = inits (init xs) ++ [xs]
 
 -- subsequences
 
