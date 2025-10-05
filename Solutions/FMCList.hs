@@ -151,9 +151,11 @@ inits :: [a] -> [[a]]
 inits [] = [[]]
 inits xs = inits (init xs) ++ [xs]
 
--- subsequences
+subsequences :: [a] -> [[a]]
+subsequences [] = [[]]
+subsequences (x:xs) = xss ++ map (x:) xss
+  where xss = subsequences xs
 
--- any
 any :: (a -> Bool) -> [a] -> Bool
 any _ [] = False
 any p (x:xs)
@@ -187,7 +189,10 @@ concat (xs:xss) = xs ++ concat xss
 -- (!!)
 
 -- filter
--- map
+
+map :: (a -> b) -> [a] -> [b]
+map _ [] = []
+map f (x:xs) = f x : map f xs
 
 -- cycle
 -- repeat
